@@ -35,3 +35,13 @@ exports.getSingleProduct = async (req, res) => {
         res.json(err)
     }
 }
+
+exports.deleteProduct = async (req, res) => {
+    const {id} = req.params;
+    try {
+        const products = await Product.findByIdAndDelete(id)
+        res.json(products)
+    } catch(err) {
+        res.json(err)
+    }
+}
